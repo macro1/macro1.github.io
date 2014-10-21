@@ -1,0 +1,20 @@
+---
+layout: base
+title: posts
+---
+
+<h1>{{ site.title }}</h1>
+<div class="subheader">A blog of things. Maintained by {{ site.author }}.</div>
+
+{% for post in paginator.posts %}
+	<article>
+
+    <header>
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <span class="subheader"><i class="icon-clock"></i><time datetime="{{ post.date|date:'%F' }}">{{ post.date|date:"%b %d, %Y" }}</time></span>
+    </header>
+
+		<div class="entry">{{ post.excerpt }}</div>
+
+	</article>
+{% endfor %}

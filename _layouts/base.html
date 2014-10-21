@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.4.6/css/foundation.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
+
+<body>
+
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar role="navigation">
+
+      <section class="top-bar-section">
+        <ul class="left">
+          <li><a href="{{ site.base_url }}/">posts</a></li>
+        </ul>
+      </section>
+
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="column">{{ content }}</div>
+  </div>
+
+</body>
+
+</html>

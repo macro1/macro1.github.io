@@ -1,0 +1,4 @@
+exclude: [Gemfile, Gemfile.lock]
+paginate: 5
+author: Micah Denbraver
+title: a mislead pedant
