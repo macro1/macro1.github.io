@@ -29,6 +29,9 @@ title: posts
         <div class="entry">{{ post.excerpt }}</div>
 
       </article>
+    {% unless forloop.last %}
+      <hr>
+    {% endunless %}
     {% endfor %}
 
   </div>
