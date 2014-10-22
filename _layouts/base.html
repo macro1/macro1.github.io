@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title }}</title>
+  <title>{{ page.title }} - {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.4.6/css/foundation.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -20,15 +20,22 @@
         </ul>
       </div>
 
+      <div class="top-bar-section">
+        <ul class="right">
+          <li><a href="https://github.com/macro1">github</a></li>
+        </ul>
+      </div>
+
     </nav>
   </div>
 
-  <div class="row">
-    <div class="column">{{ content }}</div>
-  </div>
+  {{ content }}
 
   <div class="row">
-    <div class="column">&copy; Micah Denbraver {{ site.time | date: '%Y' }} All Rights Reserved</div>
+    <div class="column">
+      <hr>
+      <p>&copy; Micah Denbraver {{ site.time | date: '%Y' }} All Rights Reserved</p>
+    </div>
   </div>
 
 </body>

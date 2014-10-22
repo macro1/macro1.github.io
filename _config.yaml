@@ -1,4 +1,5 @@
-exclude: [Gemfile, Gemfile.lock]
-paginate: 5
+title: a finite view
 author: Micah Denbraver
-title: a mislead pedant
+permalink: /:categories/:year/:title.html
+paginate: 5
+exclude: [CNAME, Gemfile, Gemfile.lock]
