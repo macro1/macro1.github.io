@@ -5,3 +5,4 @@ url: http://micah.bigprob.net
 permalink: /:categories/:year/:title.html
 paginate: 5
 exclude: [CNAME, Gemfile, Gemfile.lock]
+gems: [jekyll-sitemap]
