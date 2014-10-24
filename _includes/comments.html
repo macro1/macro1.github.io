@@ -1,0 +1,22 @@
+<script type="text/javascript">
+  (function () {
+    'use strict';
+    var i, showCommentButtons;
+    function loadDisqus() {
+      var dsq;
+      for (i = 0; i < showCommentButtons.length; i = i + 1) {
+        showCommentButtons[i].style.display = "none";
+      }
+      document.getElementById('disqus_thread').style.display = "block";
+      dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//micahblogs.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+    showCommentButtons = document.querySelectorAll(".js-show-comments");
+    for (i = 0; i < showCommentButtons.length; i = i + 1) {
+      showCommentButtons[i].onclick = loadDisqus;
+    }
+  }());
+</script>
