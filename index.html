@@ -3,36 +3,22 @@ layout: base
 title: posts
 ---
 
-<div class="row">
-  <div class="column">
+<header>
+  <h1>
+    {{ site.name }}
+  </h1>
+  <p>{{ site.description }}</p>
+</header>
+
+{% for post in paginator.posts %}
+  <article>
+
     <header>
-      <h1>
-        {{ site.name }}
-      </h1>
-      <p class="subheader">{{ site.description }}</p>
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <time datetime="{{ post.date|date:'%F' }}">{{ post.date|date:"%b %d, %Y" }}</time>
     </header>
-    <hr>
-  </div>
-</div>
 
-<div class="row">
-  <div class="medium-8 large-8 columns">
+    <div class="entry">{{ post.excerpt }}</div>
 
-    {% for post in paginator.posts %}
-      <article>
-
-        <header>
-          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-          <p class="subheader"><time datetime="{{ post.date|date:'%F' }}">{{ post.date|date:"%b %d, %Y" }}</time></p>
-        </header>
-
-        <div class="entry">{{ post.excerpt }}</div>
-
-      </article>
-    {% unless forloop.last %}
-      <hr>
-    {% endunless %}
-    {% endfor %}
-
-  </div>
-</div>
+  </article>
+{% endfor %}

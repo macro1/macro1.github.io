@@ -1,0 +1,52 @@
+---
+---
+
+$brand-color: #BA6C5E
+
+$font-family-base: Jura, sans-serif
+$font-size-base: 62.5%
+$font-size: 2rem
+
+$font-size-h1: floor(($font-size-base * 2.6))
+$font-size-h2: floor(($font-size-base * 2.15))
+$font-size-h3: ceil(($font-size-base * 1.7))
+$font-size-h4: ceil(($font-size-base * 1.25))
+$font-size-h5: $font-size-base
+$font-size-h6: ceil(($font-size-base * 0.85))
+
+$link-color: darken($brand-color, 10%)
+$link-hover-color: darken($brand-color, 15%)
+$line-height: 1.8
+
+@import skeleton
+
+body
+  background: lighten($brand-color, 40%)
+
+footer
+  border-top: 1px solid lighten($brand-color, 35%)
+
+nav
+  text-align: center
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+    font-weight: bold
+    li
+      display: inline-block
+      a
+        display: block
+        text-decoration: none
+        color: #444
+        transition: 0.4s ease background
+        padding: 15px 20px
+        border-radius: 2px
+        background-color: lighten($brand-color, 37%)
+        @media all and (min-width:640px)
+          padding: 5px 10px
+      a:hover
+        background-color: lighten($brand-color, 43%)
+  @media all and (min-width:640px)
+    float: right
+    padding: 10px 0 0 0
