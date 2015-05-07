@@ -13,16 +13,37 @@ passed to the Django ORM in place of raw SQL snippets. The first example from
 the [SQLAlchemy docs][concat example] that really intrigued me about this was
 'CONCAT', which MySQL implements as a function:
 
+
     >>> print (users.c.name + users.c.fullname).\
     ...      compile(bind=create_engine('mysql://'))
     concat(users.name, users.fullname)
+
 
 Those of you familiar with other engines already know the more standard strict
 concat operation is done with pipes ('||'), but SQLAlchemy makes this change
 for us if we bind the correct engine when compiling.
 
-Now that we know SQLAlchemy can express queries, and expressions within
-queries, and that it can be compiled to any major dialect, we just need a
-comfortable way to fit all of that into writing a '.extra()'.
+So, SQLAlchemy can express queries, and expressions within queries, and it can
+be compiled to any major dialect... We now need a comfortable way to fit all
+of that into writing a '.extra()'.
 
+I opted to experiment with this by adding a new module to our project, and
+adding [django-sabridge] to the mix.
+
+alchemy.py:
+
+
+    from django.db import connection
+	import sabridge
+	import sqlalchemy
+	
+	bridge = sabridge.Bridge()
+	
+	
+	def compile(epxression):
+		engine = sqlalchemy.create_engine('{}://'.format(connection.vendor))
+	    return str(expression.compile(bind=engine))
+		
+		
 [concat example]: http://docs.sqlalchemy.org/en/rel_1_0/core/tutorial.html#operators "SQLAlchemy Tutorial: Operators"
+[django-sabridge]: http://django-sabridge.readthedocs.org/
