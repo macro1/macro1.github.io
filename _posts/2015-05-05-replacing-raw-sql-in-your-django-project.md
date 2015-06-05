@@ -27,8 +27,7 @@ So, SQLAlchemy can express queries, and expressions within queries, and it can
 be compiled to any major dialect... We now need a comfortable way to fit all
 of that into writing a '.extra()'.
 
-I opted to experiment with this by adding a new module to our project, and
-adding [django-sabridge] to the mix.
+Here is an example clause compiling helper using [django-sabridge]:
 
 alchemy.py:
 
@@ -44,6 +43,8 @@ alchemy.py:
 		engine = sqlalchemy.create_engine('{}://'.format(connection.vendor))
 	    return str(expression.compile(bind=engine))
 		
+
+That allows us to use sqlalchemy instead of raw SQL without adding too much extra to our code.
 		
 [concat example]: http://docs.sqlalchemy.org/en/rel_1_0/core/tutorial.html#operators "SQLAlchemy Tutorial: Operators"
 [django-sabridge]: http://django-sabridge.readthedocs.org/
