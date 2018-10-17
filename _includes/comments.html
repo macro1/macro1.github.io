@@ -17,6 +17,7 @@
     showCommentButtons = document.querySelectorAll(".js-show-comments");
     for (i = 0; i < showCommentButtons.length; i = i + 1) {
       showCommentButtons[i].onclick = loadDisqus;
+      showCommentButtons[i].onkeypress = loadDisqus;
     }
   }());
 </script>
